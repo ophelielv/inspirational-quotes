@@ -1,3 +1,87 @@
+/*
+blue-truely-light - #d3e0e6;
+blue-lighter - #b0d0e0;
+blue-light - #177aab;
+blue-medium - #115d82
+blue-dark - #072735
+gold - #f3cd00
+*/
+
+
 body { 
-    padding-top: 50px; 
+    background: #0b3b52;
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* -------------------------------------------------------------------------------- */
+/* --------------------------- Header --------------------------------------------- */
+/* -------------------------------------------------------------------------------- */
+header {
+    background: #072735; /*blue-dark */
+    padding: 30px;
+    margin-bottom: 30px;
+    color: inherit;
+    border-bottom: 1px dotted #115d82; /*blue-medium*/
+}
+
+header > h1 {
+    color: #d3e0e6; /*blue-truely-light*/
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: 1px;
+}
+
+header > p {
+    color: #b0d0e0;
+    font-family: 'Hind Vadodara', sans-serif;
+
+}
+
+/* -------------------------------------------------------------------------------- */
+/* --------------------------- Main - --------------------------------------------- */
+/* -------------------------------------------------------------------------------- */
+main {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+main > div.action-div {
+    padding: 20px 0px;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+main button {
+    padding: 10px 25px;
+    border-radius: 8px;
+    background: none;
+    border: 2px solid #d3e0e6; /*blue-truely-light*/
+    color: #d3e0e6; /*blue-truely-light*/
+}
+
+main button:hover {
+    border: 2px solid #f3cd00;
+    color: #f3cd00;
+}
+
+main button > i.icon {
+    margin-right: 5px;
+}
+/* -------------------------------------------------------------------------------- */
+/* --------------------------- Footer --------------------------------------------- */
+/* -------------------------------------------------------------------------------- */
+footer .footer-text {
+    color: #b0d0e0;
+    text-align: center;
+    padding: 20px 0px;
 }
