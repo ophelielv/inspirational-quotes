@@ -1,9 +1,18 @@
-var express = require('express');
-var url = require('url');
+const express = require('express');
+const axios = require('axios');
 
-var app = express();
+const app = express();
 
-app.get('/', function(req, res) {
+app.get('/', async function(req, res) {
+    axios.get('https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY')
+    .then(response => {
+        console.log(response.data.url);
+        console.log(response.data.explanation);
+    })
+    .catch(error => {
+        console.log(error);
+    });
+  
     res.render('./index.ejs')
 });
 
@@ -16,9 +25,10 @@ app.use(function(req, res, next){
 
 app.listen(8080);
 
+// const url = require('url');
 
 // app.get('/sous-sol', function(req, res) {
-//     var page = url.parse(req.url).pathname;
+//     const page = url.parse(req.url).pathname;
 //     console.log("*********", page);
 //     res.setHeader('Content-Type', 'text/plain');
 //     res.send('Vous êtes dans la cave à vins, ces bouteilles sont à moi !');
