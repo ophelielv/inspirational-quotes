@@ -1,3 +1,0 @@
-
-export const ACCESS_KEY = 'df5acf6f662bf99082ea89de73f11d08c3eaf160b8e0d77ccbca4018b4563554'
-export const SECRET_KEY = '90040c3cb274f9b64db59b6a3b056b5e86a29e20ffa320535079452883ddba89'

@@ -1,19 +1,18 @@
 const express = require('express');
-const axios = require('axios');
+// const axios = require('axios');
 
 const app = express();
+const apiPixabayService = require('./src/services/api-pixabay/api')
 
 app.get('/', async function(req, res) {
-    axios.get('https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY')
-    .then(response => {
-        console.log(response.data.url);
-        console.log(response.data.explanation);
-    })
-    .catch(error => {
-        console.log(error);
-    });
+    const image = await (new apiPixabayService()).getPicture()
+    if(!image){
+        res.status(424).send('Image introuvable');
+    }
   
-    res.render('./index.ejs')
+    res.render('./index.ejs', {
+        image: image,
+    })
 });
 
 app.use('/public', express.static('public'));
