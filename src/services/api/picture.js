@@ -2,7 +2,7 @@ const axios = require('axios');
 const getRandomInt = require('../utils/utils')
 
 class Picture {
-    constructor(keywords){
+    constructor(){
 
         const categorìes = [
             `nature`, `backgrounds`, `science`, `education`, 
@@ -17,9 +17,9 @@ class Picture {
             + `&editors_choice=true`
             + `&orientation=horizontal`
             + `&safesearch=true`
-            // + `$per_page=20`
+            + `$per_page=100`
             + `$category=${categorìes[categoryIndex]}`
-            + `&q=${ (keywords) ? keywords : 'jack+white' }`
+            // + `&q=${ (keywords) ? keywords : 'jack+white' }`
 
         this.url = `https://pixabay.com/api/?key=${key}${params}`
     }

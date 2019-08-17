@@ -6,8 +6,13 @@ const app = express();
 app.get('/', async function(req, res) {
     const image = await (new apiPicture()).getPicture()
     const quote = await (new apiQuote()).getQuote()
+    
     if(!image){
-        res.status(424).send('Image introuvable');
+        res.status(424).send('Image not found');
+    }
+
+    if(!quote){
+        res.status(424).send('Quote not found');
     }
   
     res.render('./index.ejs', {

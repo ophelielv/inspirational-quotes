@@ -5,8 +5,8 @@ blue-light - #177aab;
 blue-medium - #115d82
 blue-dark - #072735
 gold - #f3cd00
+transparent-grey - #131f2570
 */
-
 
 body { 
     background: #0b3b52;
@@ -22,10 +22,10 @@ body {
 /* -------------------------------------------------------------------------------- */
 header {
     background: #072735; /*blue-dark */
-    padding: 30px;
-    margin-bottom: 30px;
+    padding: 0px 30px;
     color: inherit;
-    border-bottom: 1px dotted #115d82; /*blue-medium*/
+    border-bottom: 5px dotted #115d82; /*blue-medium*/
+    width: 100%;
 }
 
 header > h1 {
@@ -59,16 +59,21 @@ main > section.quote-container {
     height: 100%;
 }
 
-image.image-quote {
+img.image-quote {
+    width: 100%;
 }
 
 blockquote#quote {
-    background: #3e3e3e7d;
+    background: #131f2570; /* transparent-grey */
+    color: #f6fcff;
     padding: 18px 20px;
     position: absolute;
+    font-family: 'Hind Vadodara', sans-serif;
+    letter-spacing: 1px;
     right: 0%;
     bottom: 5%;
     border-radius: 5px;
+    font-size: xx-large;
 }
 
 main > section.action {
@@ -94,9 +99,11 @@ main button:hover {
 main button > i.icon {
     margin-right: 5px;
 }
+
 /* -------------------------------------------------------------------------------- */
 /* --------------------------- Footer --------------------------------------------- */
 /* -------------------------------------------------------------------------------- */
+
 footer .footer-text {
     color: #b0d0e0;
     text-align: center;

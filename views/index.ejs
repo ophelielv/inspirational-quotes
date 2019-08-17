@@ -4,14 +4,11 @@
         <% include ./partials/head %>
     </head>
     <body>
-
-        <header>
-            <% include ./partials/header %>
-        </header>
+        <% include ./partials/header %>  
 
         <main>
             <section class="quote-container">
-                <image src="<%= image.webformatURL %>" alt="<%= image.tags %>" class="image-quote" />
+                <img src="<%= image.largeImageURL %>" alt="<%= image.tags %>" class="image-quote" />
                 <blockquote id="quote">
                     <em><%= quote.quoteText %></em>
                     <%= (quote.quoteAuthor) ? '− ' + quote.quoteAuthor : '' %>
@@ -26,8 +23,6 @@
             </section>
         </main>
 
-        <footer>
-            <% include ./partials/footer %>
-        </footer>
+        <% include ./partials/footer %>
     </body>
 </html>

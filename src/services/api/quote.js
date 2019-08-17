@@ -23,7 +23,6 @@ class Quote {
     getQuote(){
         return axios.get(this.url)
         .then(response => {
-            console.log(response.data)
             return response.data
         })
         .catch(error => {
