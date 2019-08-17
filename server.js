@@ -1,17 +1,18 @@
+const apiPicture = require('./src/services/api/picture')
+const apiQuote = require('./src/services/api/quote')
 const express = require('express');
-// const axios = require('axios');
-
 const app = express();
-const apiPixabayService = require('./src/services/api-pixabay/api')
 
 app.get('/', async function(req, res) {
-    const image = await (new apiPixabayService()).getPicture()
+    const image = await (new apiPicture()).getPicture()
+    const quote = await (new apiQuote()).getQuote()
     if(!image){
         res.status(424).send('Image introuvable');
     }
   
     res.render('./index.ejs', {
         image: image,
+        quote: quote
     })
 });
 

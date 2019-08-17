@@ -54,7 +54,24 @@ main {
     flex-direction: column;
 }
 
-main > div.action-div {
+main > section.quote-container {
+    position: relative;
+    height: 100%;
+}
+
+image.image-quote {
+}
+
+blockquote#quote {
+    background: #3e3e3e7d;
+    padding: 18px 20px;
+    position: absolute;
+    right: 0%;
+    bottom: 5%;
+    border-radius: 5px;
+}
+
+main > section.action {
     padding: 20px 0px;
     width: 100%;
     display: flex;

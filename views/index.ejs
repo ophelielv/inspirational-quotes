@@ -10,12 +10,20 @@
         </header>
 
         <main>
-            <image src="<%= image.webformatURL %>" alt="<%= image.tags %>"class="image-quote" width="240" height="160" />
-            <div class="action-div">
+            <section class="quote-container">
+                <image src="<%= image.webformatURL %>" alt="<%= image.tags %>" class="image-quote" />
+                <blockquote id="quote">
+                    <em><%= quote.quoteText %></em>
+                    <%= (quote.quoteAuthor) ? '− ' + quote.quoteAuthor : '' %>
+                    <!-- <%= quote.quoteLink %> -->
+                </blockquote>
+            </section>
+
+            <section class="action">
                 <button><i class="far fa-image icon"></i> Recharger l'image</button>
                 <button><i class="far fa-comment-alt icon"></i> Recharger le texte</button>
                 <button><i class="fa fa-download icon"></i> Sauvegarder</button>
-            </div>
+            </section>
         </main>
 
         <footer>

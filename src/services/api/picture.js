@@ -1,7 +1,7 @@
 const axios = require('axios');
 const getRandomInt = require('../utils/utils')
 
-class Pixabay {
+class Picture {
     constructor(keywords){
 
         const categorìes = [
@@ -58,10 +58,10 @@ class Pixabay {
             return response.data.hits[num]
         })
         .catch(error => {
-            console.log(error);
+            console.log(error.message)
         })          
     }
 
 }
 
-module.exports = Pixabay
+module.exports = Picture
