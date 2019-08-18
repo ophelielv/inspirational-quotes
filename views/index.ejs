@@ -11,8 +11,7 @@
                 <img src="<%= image.largeImageURL %>" alt="<%= image.tags %>" class="image-quote" />
                 <blockquote id="quote">
                     <em><%= quote.quoteText %></em>
-                    <%= (quote.quoteAuthor) ? '− ' + quote.quoteAuthor : '' %>
-                    <!-- <%= quote.quoteLink %> -->
+                    <span class="author"><%= (quote.quoteAuthor) ? '− ' + quote.quoteAuthor : '' %></span>
                 </blockquote>
             </section>
 

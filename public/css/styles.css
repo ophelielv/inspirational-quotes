@@ -40,7 +40,6 @@ header > h1 {
 header > p {
     color: #b0d0e0;
     font-family: 'Hind Vadodara', sans-serif;
-
 }
 
 /* -------------------------------------------------------------------------------- */
@@ -64,6 +63,7 @@ img.image-quote {
 }
 
 blockquote#quote {
+    display: none; /* s'affiche quand l'image est chargée */
     background: #131f2570; /* transparent-grey */
     color: #f6fcff;
     padding: 18px 20px;
@@ -71,9 +71,21 @@ blockquote#quote {
     font-family: 'Hind Vadodara', sans-serif;
     letter-spacing: 1px;
     right: 0%;
-    bottom: 5%;
-    border-radius: 5px;
+    bottom: 15%;
+    border-radius: 15px;
     font-size: xx-large;
+    /* transition: height 350ms ease-in-out;
+    height: 0; */
+}
+
+blockquote#quote.is-visible{
+    display: block;
+    /* height: auto; */
+}
+
+blockquote#quote > span.author {
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.8em;
 }
 
 main > section.action {
