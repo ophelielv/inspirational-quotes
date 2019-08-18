@@ -3,23 +3,32 @@ const getRandomInt = require('../utils/utils')
 
 class Picture {
     constructor(){
+        // const categorìes = [
+        //     `nature`, `backgrounds`, `science`, `education`, 
+        //     `people`, `feelings`, `places`, `animals`, 
+        //     `computer`, `sports`, `travel`, `buildings`,
+        //     `business`, `music`
+        // ]
+        // const categoryIndex = getRandomInt(categorìes.length)
 
-        const categorìes = [
-            `nature`, `backgrounds`, `science`, `education`, 
-            `people`, `feelings`, `places`, `animals`, 
-            `computer`, `sports`, `travel`, `buildings`,
-            `business`, `music`
+        const keywords = [
+            'happy', 'happy+people', 'inspirational', 'peace',
+            'team', 'work', 'comedy', 'drama', 'family', 'frienship',
+            /*'serious', */'dream', 'meditation', 'spirit'
         ]
-        const categoryIndex = getRandomInt(categorìes.length)
+        const keywordIndex = getRandomInt(keywords.length)
 
-        const key = `13332035-cb32565c630b756f293fd93b6`
         const params = `&image_type=photo`
-            + `&editors_choice=true`
-            + `&orientation=horizontal`
-            + `&safesearch=true`
-            + `$per_page=100`
-            + `$category=${categorìes[categoryIndex]}`
-            // + `&q=${ (keywords) ? keywords : 'jack+white' }`
+        + `&editors_choice=true`
+        + `&orientation=horizontal`
+        + `&safesearch=true`
+        + `$per_page=100`
+        // + `$category=${categorìes[categoryIndex]}`
+        + `&q=${keywords[keywordIndex]}`
+
+        console.log(keywords[keywordIndex])
+        
+        const key = `13332035-cb32565c630b756f293fd93b6`
 
         this.url = `https://pixabay.com/api/?key=${key}${params}`
     }
