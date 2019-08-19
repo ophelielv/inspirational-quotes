@@ -10,8 +10,10 @@ transparent-grey - #131f2570
 
 body { 
     background: #0b3b52;
-    font-family: 'Roboto', sans-serif;
+    font-family: Roboto, sans-serif;
+    font-size: 16px;
     margin: 0;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -21,17 +23,15 @@ body {
 /* --------------------------- Header --------------------------------------------- */
 /* -------------------------------------------------------------------------------- */
 header {
-    background: #072735; /*blue-dark */
-    padding: 0px 30px;
     color: inherit;
-    border-bottom: 5px dotted #115d82; /*blue-medium*/
+    border-bottom: 4px dotted #115d82; /*blue-medium*/
     width: 100%;
 }
 
 header > h1 {
     color: #d3e0e6; /*blue-truely-light*/
-    margin-top: 20px;
     margin-bottom: 10px;
+    margin-left: 30px;
     font-weight: 600;
     line-height: 1.1;
     letter-spacing: 1px;
@@ -39,6 +39,7 @@ header > h1 {
 
 header > p {
     color: #b0d0e0;
+    margin-left: 30px;
     font-family: 'Hind Vadodara', sans-serif;
 }
 
@@ -47,22 +48,21 @@ header > p {
 /* -------------------------------------------------------------------------------- */
 main {
     display: flex;
-    flex: 1;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
+    justify-content: space-evenly;
+    flex: 2 1 auto;
 }
 
 main > section.quote-container {
     position: relative;
-    height: 100%;
+    /* height: 80vh; */
 }
 
 img.image-quote {
     width: 100%;
 }
 
-blockquote#quote {
+#quote {
     display: none; /* s'affiche quand l'image est chargée */
     background: #131f2570; /* transparent-grey */
     color: #f6fcff;
@@ -73,17 +73,14 @@ blockquote#quote {
     right: 0%;
     bottom: 15%;
     border-radius: 15px;
-    font-size: xx-large;
-    /* transition: height 350ms ease-in-out;
-    height: 0; */
+    font-size: x-large;
 }
 
-blockquote#quote.is-visible{
+#quote.is-visible{
     display: block;
-    /* height: auto; */
 }
 
-blockquote#quote > span.author {
+#quote > span.author {
     font-family: 'Roboto', sans-serif;
     font-size: 0.8em;
 }
