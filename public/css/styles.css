@@ -6,6 +6,7 @@ blue-medium - #115d82
 blue-dark - #072735
 gold - #f3cd00
 transparent-grey - #131f2570
+transparent-blue - rgba(23, 122, 171, 0.46);
 */
 
 body { 
@@ -76,8 +77,8 @@ img.image-quote {
     font-size: x-large;
 }
 
-#quote.is-visible{
-    display: block;
+.is-visible{
+    display: block!important;
 }
 
 #quote > span.author {
@@ -108,6 +109,19 @@ main button:hover {
 main button > i.icon {
     margin-right: 5px;
 }
+
+main .loader {
+    /* min-height: 20px; 
+    text-align: center; */
+    display: none;
+    position: fixed;
+    top: 52%;
+    left: 45%;
+    background: rgba(23, 122, 171, 0.46);;
+    padding: 0px 30px;
+    border-radius: 18px;
+}
+
 
 /* -------------------------------------------------------------------------------- */
 /* --------------------------- Footer --------------------------------------------- */

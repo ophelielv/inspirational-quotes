@@ -35,8 +35,9 @@ document.querySelector('#refresh-quote').addEventListener('click', event => {
     event.preventDefault()
     apiRefresh('/api/refresh-quote').then(
         response => {
-            document.querySelector('#quote-text').innerHTML = response.quoteText
-            document.querySelector('#quote-author').innerHTML = response.quoteAuthor
+            const { quoteText, quoteAuthor } = response
+            document.querySelector('#quote-text').innerHTML = quoteText ? quoteText : ''
+            document.querySelector('#quote-author').innerHTML = quoteAuthor ? '- ' + quoteAuthor : ''
         },
         error => console.log(error)
     )
@@ -51,9 +52,16 @@ document.querySelector('#refresh-quote').addEventListener('click', event => {
  */
 const apiRefresh = (url) => {
     const xhr = new XMLHttpRequest()
+    const loader = document.querySelector('.loader')
+
+    loader.classList.add('is-visible')
     return new Promise( (resolve, reject) => {
         xhr.onreadystatechange = function() {
             if (xhr.readyState === 4) {
+                setTimeout(function(){
+                    loader.classList.remove('is-visible')
+                }, 250) 
+                
                 const data = JSON.parse(xhr.responseText)
                 resolve(data)
             }

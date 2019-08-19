@@ -14,7 +14,7 @@ class Picture {
         const keywords = [
             'happy', 'happy+people', 'inspirational', 'peace',
             'team', 'work', 'comedy', 'drama', 'family', 'frienship',
-            /*'serious', */'dream', 'meditation', 'spirit'
+            'dream', 'meditation', 'spirit'
         ]
         const keywordIndex = getRandomInt(keywords.length)
 
@@ -25,8 +25,6 @@ class Picture {
         + `$per_page=100`
         // + `$category=${categorìes[categoryIndex]}`
         + `&q=${keywords[keywordIndex]}`
-
-        console.log(keywords[keywordIndex])
         
         const key = `13332035-cb32565c630b756f293fd93b6`
 
