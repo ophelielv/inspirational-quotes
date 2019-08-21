@@ -4,26 +4,29 @@ const express = require('express');
 const app = express();
 
 app.get('/', async function(req, res) {
+    let error = null
+
     const image = await (new apiPicture()).getPicture()
     if(!image){
-        res.status(424).send('Image not found');
+        error ='Image not found';
     }
     
     const quote = await (new apiQuote()).getQuote()
     if(!quote){
-        res.status(424).send('Quote not found');
+        error = 'Quote not found'
     }
     
     res.render('./index.ejs', {
         image: image,
-        quote: quote
+        quote: quote,
+        error: error
     })
 });
 
 app.get('/api/refresh-picture', async function(req, res) {
     const image = await (new apiPicture()).getPicture()
     if(!image){
-        res.status(424).send('Image not found');
+        res.status(424).send(false);
     }
 
     res.json({
@@ -35,7 +38,7 @@ app.get('/api/refresh-picture', async function(req, res) {
 app.get('/api/refresh-quote', async function(req, res) {
     const quote = await (new apiQuote()).getQuote()
     if(!quote){
-        res.status(424).send('Quote not found');
+        res.status(424).send(false);
     }
 
     res.json({

@@ -8,17 +8,21 @@
 
         <main>
             <section class="quote-container">
-                <img id="picture" src="<%= image.largeImageURL %>" alt="<%= image.tags %>" class="image-quote" />
+                <img id="picture" src="<%= (image) ? image.largeImageURL : '' %>" alt="<%= (image) ? image.tags : '' %>" class="image-quote" />
                 <blockquote id="quote">
-                    <em id="quote-text"><%= quote.quoteText %></em>
-                    <p class="author" id="quote-author"><%= (quote.quoteAuthor) ? '− ' + quote.quoteAuthor : '' %></p>
+                    <em id="quote-text"><%= (quote) ? quote.quoteText : '' %></em>
+                    <p class="author" id="quote-author"><%= (quote && quote.quoteAuthor) ? '− ' + quote.quoteAuthor : '' %></p>
                 </blockquote>
             </section>
             
             <section class="action">
-                <button id="refresh-picture"><i class="far fa-image icon"></i> Recharger l'image</button>
-                <button id="refresh-quote"><i class="far fa-comment-alt icon"></i> Recharger le texte</button>
+                <button id="refresh-picture"><i class="far fa-image icon"></i> New picture</button>
+                <button id="refresh-quote"><i class="far fa-comment-alt icon"></i> New quote</button>
             </section>
+
+            <p id="error" class="error <%= (error !== null) ? 'is-visible' : '' %>">
+                <%= error %>
+            </p>
             
             <div class="loader">
                 <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>

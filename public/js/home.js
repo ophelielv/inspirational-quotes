@@ -4,10 +4,17 @@
 /**
  * Afficher la citation
  */
-const picture = document.querySelector('#picture')
 const quote = document.querySelector('#quote')
 setTimeout(() => quote.classList.add('is-visible'), 2200)
 
+//----------------------------------------------------------
+//--------------- Utils ------------------------------------
+//----------------------------------------------------------
+const showError = message => {
+    const errorHTML = document.querySelector('.error')
+    errorHTML.innerHTML = message
+    errorHTML.classList.add('is-visible')
+}
 //----------------------------------------------------------
 //--------------- Boutons ----------------------------------
 //----------------------------------------------------------
@@ -24,7 +31,7 @@ document.querySelector('#refresh-picture').addEventListener('click', event => {
             picture.src = response.largeImageURL
             picture.alt = response.tags
         },
-        error => console.log(error)
+        error => showError('Image not found, try again') 
     )
 })
 
@@ -39,7 +46,7 @@ document.querySelector('#refresh-quote').addEventListener('click', event => {
             document.querySelector('#quote-text').innerHTML = quoteText ? quoteText : ''
             document.querySelector('#quote-author').innerHTML = quoteAuthor ? '- ' + quoteAuthor : ''
         },
-        error => console.log(error)
+        error => showError('Quote not found, try again')
     )
 })
 
@@ -52,9 +59,13 @@ document.querySelector('#refresh-quote').addEventListener('click', event => {
  */
 const apiRefresh = (url) => {
     const xhr = new XMLHttpRequest()
-    const loader = document.querySelector('.loader')
 
+    const loader = document.querySelector('.loader')
     loader.classList.add('is-visible')
+
+    const error = document.querySelector('.error')
+    error.classList.remove('is-visible')
+
     return new Promise( (resolve, reject) => {
         xhr.onreadystatechange = function() {
             if (xhr.readyState === 4) {
@@ -62,12 +73,14 @@ const apiRefresh = (url) => {
                     loader.classList.remove('is-visible')
                 }, 250) 
                 
+                if(xhr.status !== 200 || xhr.responseText === '{}' ){
+                    reject(true)
+                }
                 const data = JSON.parse(xhr.responseText)
                 resolve(data)
             }
         }
         xhr.open("GET", url, true)
         xhr.send()
-        // reject("")
     })
 }
