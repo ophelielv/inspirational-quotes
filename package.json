@@ -1,0 +1,35 @@
+{
+  "name": "inspirational-quotes",
+  "version": "1.0.0",
+  "description": "Inspirational quotes generator",
+  "main": "server.js",
+  "dependencies": {
+    "axios": "^0.19.0",
+    "ejs": "^2.6.2",
+    "express": "^4.17.1",
+    "unsplash-js": "^5.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "npm test",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ophelielv/inspirational-quotes.git"
+  },
+  "keywords": [
+    "api",
+    "node",
+    "express",
+    "vanilla",
+    "quotes",
+    "picture"
+  ],
+  "author": "Ophélie Le Vigouroux",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ophelielv/inspirational-quotes/issues"
+  },
+  "homepage": "https://github.com/ophelielv/inspirational-quotes#readme"
+}
