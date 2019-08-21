@@ -57,12 +57,12 @@ main {
 /* --------------------------- Quote --------------------------------------------- */
 main > section.quote-container {
     position: relative;
-    /* height: 80vh; */
+    text-align: center;
 }
 
 img.image-quote {
-    width: 100%;
-    min-height: 30vh;
+    width: auto;
+    max-height: 60vh;
 }
 
 #quote {
@@ -73,10 +73,11 @@ img.image-quote {
     position: absolute;
     font-family: 'Hind Vadodara', sans-serif;
     letter-spacing: 1px;
-    right: 0%;
+    right: 10%;
     bottom: 15%;
     border-radius: 15px;
     font-size: x-large;
+    max-width: 600px;
 }
 
 .is-visible{
@@ -89,7 +90,7 @@ img.image-quote {
 }
 
 main > section.action {
-    padding: 20px 0px;
+    padding: 10px 0px;
     width: 100%;
     display: flex;
     justify-content: space-evenly;
@@ -135,9 +136,37 @@ p.error {
 /* -------------------------------------------------------------------------------- */
 /* --------------------------- Footer --------------------------------------------- */
 /* -------------------------------------------------------------------------------- */
-
 footer .footer-text {
     color: #b0d0e0;
     text-align: center;
-    padding: 20px 0px;
 }
+
+/* -------------------------------------------------------------------------------- */
+/* --------------------------- Media query ---------------------------------------- */
+/* -------------------------------------------------------------------------------- */
+@media (min-width: 900px) {
+    #quote {
+        right: 20%;
+    } 
+}
+@media (max-width: 640px) { 
+    body {
+        min-width: 340px;
+    }
+
+    #quote { 
+        font-size: 14px;
+    } 
+
+    img.image-quote {
+        width: 100%;
+    }
+
+    main > section.action {
+        flex-direction: column;
+    }
+
+    main button {
+        margin: 5px 20px;
+    }
+}  
