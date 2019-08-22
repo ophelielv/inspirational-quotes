@@ -1,7 +1,9 @@
-const apiPicture = require('./src/services/api/picture')
-const apiQuote = require('./src/services/api/quote')
-const express = require('express');
-const app = express();
+const apiPicture = require('./services/api/picture')
+const apiQuote = require('./services/api/quote')
+const express = require('express')
+const app = express()
+
+app.set('views', process.cwd() + '/src/views')
 
 app.get('/', async function(req, res) {
     let error = null
@@ -16,7 +18,7 @@ app.get('/', async function(req, res) {
         error = 'Quote not found'
     }
     
-    res.render('./index.ejs', {
+    res.render('index.ejs', {
         image: image,
         quote: quote,
         error: error
@@ -47,7 +49,7 @@ app.get('/api/refresh-quote', async function(req, res) {
     })
 })
 
-app.use('/public', express.static('public'));
+app.use('/public', express.static('src/public'));
 
 app.use(function(req, res, next){
     res.setHeader('Content-Type', 'text/plain');

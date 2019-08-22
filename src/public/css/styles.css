@@ -146,7 +146,7 @@ footer .footer-text {
 /* -------------------------------------------------------------------------------- */
 @media (min-width: 900px) {
     #quote {
-        right: 20%;
+        right: 25%;
     } 
 }
 @media (max-width: 640px) { 

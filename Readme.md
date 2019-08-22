@@ -9,6 +9,10 @@ In the project directory, you can run the app in the development mode:
 
 * `npm install`
 * `node server.js`
+* `npm start`
+
+## Run tests
+* `npm test`
 
 
 Open [http://localhost:8080](http://localhost:8080) to view it in the browser.
