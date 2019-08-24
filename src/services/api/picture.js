@@ -1,11 +1,11 @@
 const axios = require('axios');
-const getRandomInt = require('../utils/utils')
+const getRandomInt = require('../utils/utils');
 
 class Picture {
-    constructor(){
+    constructor() {
         // const categorìes = [
-        //     `nature`, `backgrounds`, `science`, `education`, 
-        //     `people`, `feelings`, `places`, `animals`, 
+        //     `nature`, `backgrounds`, `science`, `education`,
+        //     `people`, `feelings`, `places`, `animals`,
         //     `computer`, `sports`, `travel`, `buildings`,
         //     `business`, `music`
         // ]
@@ -14,21 +14,21 @@ class Picture {
         const keywords = [
             'happy', 'happy+people', 'inspirational', 'peace',
             'team', 'work', 'comedy', 'drama', 'family', 'frienship',
-            'dream', 'meditation', 'spirit'
-        ]
-        const keywordIndex = getRandomInt(keywords.length)
+            'dream', 'meditation', 'spirit',
+        ];
+        const keywordIndex = getRandomInt(keywords.length);
 
-        const params = `&image_type=photo`
-        + `&editors_choice=true`
-        + `&orientation=horizontal`
-        + `&safesearch=true`
-        + `$per_page=100`
+        const params = '&image_type=photo'
+        + '&editors_choice=true'
+        + '&orientation=horizontal'
+        + '&safesearch=true'
+        + '$per_page=100'
         // + `$category=${categorìes[categoryIndex]}`
-        + `&q=${keywords[keywordIndex]}`
-        
-        const key = `13332035-cb32565c630b756f293fd93b6`
+        + `&q=${keywords[keywordIndex]}`;
 
-        this.url = `https://pixabay.com/api/?key=${key}${params}`
+        const key = '13332035-cb32565c630b756f293fd93b6';
+
+        this.url = `https://pixabay.com/api/?key=${key}${params}`;
     }
 
     /**
@@ -55,20 +55,19 @@ class Picture {
      *      imageSize: 370390,
      *      previewWidth: 150,
      *      userImageURL: 'https://cdn.pixabay.com/user/2019/04/11/22-45-05-994_250x250.jpg',
-     *      previewURL: 'https://cdn.pixabay.com/photo/2015/04/19/08/33/flower-729515_150.jpg' 
+     *      previewURL: 'https://cdn.pixabay.com/photo/2015/04/19/08/33/flower-729515_150.jpg'
      *  }
      */
-    getPicture(){
+    getPicture() {
         return axios.get(this.url)
-        .then(response => {
-            const num = getRandomInt(response.data.hits.length)
-            return response.data.hits[num]
-        })
-        .catch(error => {
-            console.log(error.message)
-        })          
+            .then((response) => {
+                const num = getRandomInt(response.data.hits.length);
+                return response.data.hits[num];
+            });
+        // .catch((error) => {
+        //     console.log(error.message);
+        // });
     }
-
 }
 
-module.exports = Picture
+module.exports = Picture;

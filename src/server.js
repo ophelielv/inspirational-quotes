@@ -1,57 +1,58 @@
-const apiPicture = require('./services/api/picture')
-const apiQuote = require('./services/api/quote')
-const express = require('express')
-const app = express()
+const express = require('express');
+const ApiPicture = require('./services/api/picture');
+const ApiQuote = require('./services/api/quote');
 
-app.set('views', process.cwd() + '/src/views')
+const app = express();
 
-app.get('/', async function(req, res) {
-    let error = null
+app.set('views', `${process.cwd()}/src/views`);
 
-    const image = await (new apiPicture()).getPicture()
-    if(!image){
-        error ='Image not found';
+app.get('/', async (req, res) => {
+    let error = null;
+
+    const image = await (new ApiPicture()).getPicture();
+    if (!image) {
+        error = 'Image not found';
     }
-    
-    const quote = await (new apiQuote()).getQuote()
-    if(!quote){
-        error = 'Quote not found'
+
+    const quote = await (new ApiQuote()).getQuote();
+    if (!quote) {
+        error = 'Quote not found';
     }
-    
+
     res.render('index.ejs', {
-        image: image,
-        quote: quote,
-        error: error
-    })
+        image,
+        quote,
+        error,
+    });
 });
 
-app.get('/api/refresh-picture', async function(req, res) {
-    const image = await (new apiPicture()).getPicture()
-    if(!image){
+app.get('/api/refresh-picture', async (req, res) => {
+    const image = await (new ApiPicture()).getPicture();
+    if (!image) {
         res.status(424).send(false);
     }
 
     res.json({
         largeImageURL: image.largeImageURL,
-        tags: image.tags
-    })
-})
+        tags: image.tags,
+    });
+});
 
-app.get('/api/refresh-quote', async function(req, res) {
-    const quote = await (new apiQuote()).getQuote()
-    if(!quote){
+app.get('/api/refresh-quote', async (req, res) => {
+    const quote = await (new ApiQuote()).getQuote();
+    if (!quote) {
         res.status(424).send(false);
     }
 
     res.json({
         quoteAuthor: quote.quoteAuthor,
-        quoteText: quote.quoteText
-    })
-})
+        quoteText: quote.quoteText,
+    });
+});
 
 app.use('/public', express.static('src/public'));
 
-app.use(function(req, res, next){
+app.use((req, res) => {
     res.setHeader('Content-Type', 'text/plain');
     res.status(404).send('Page introuvable !');
 });
